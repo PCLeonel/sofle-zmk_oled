@@ -114,8 +114,8 @@
             >;
         };
 
-        colemak {
-            display-name = "default";
+        colemak_layer {
+            display-name = "Colemak";
             bindings = <
 &kp GRAVE         &kp N1  &kp N2        &kp N3        &kp N4  &kp N5                               &kp N6     &kp N7  &kp N8         &kp N9   &kp N0            &kp CAPSLOCK
 &kp TAB           &kp Q   &kp W         &kp F         &kp P   &kp B                                &kp J      &kp L   &kp U          &kp Y    &kp SINGLE_QUOTE  &kp LS(PRINTSCREEN)
@@ -129,8 +129,8 @@
                 <&inc_dec_kp PG_UP PG_DN>;
         };
 
-        Games {
-            display-name = "default";
+        Games_layer {
+            display-name = "Games";
             bindings = <
 &kp GRAVE         &kp N1  &kp N2        &kp N3        &kp N4  &kp N5                                 &kp N6     &kp N7  &kp N8     &kp N9   &kp N0    &kp CAPSLOCK
 &kp TAB           &kp Q   &kp W         &kp E         &kp R   &kp T                                  &kp Y      &kp U   &kp I      &kp O    &kp P     &kp LS(PRINTSCREEN)
