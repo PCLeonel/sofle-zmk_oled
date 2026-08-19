@@ -1,62 +1,20 @@
-# This file defines the firmware variants built by GitHub Actions.
-#
-# board:
-#   Controller installed on the keyboard.
-#
-# shield:
-#   Physical keyboard PCB and corresponding side.
-#
-# snippet:
-#   Optional Zephyr component added during compilation.
-#
-# cmake-args:
-#   Additional compile-time options.
-#
-# artifact-name:
-#   Name used for the generated firmware artifact.
+# Firmware build matrix for Leonel's wireless Sofle.
 
 ---
 include:
-  # ===========================================================================
-  # SOFLE LEFT
-  # ===========================================================================
-  #
-  # The left side is the central side of the split keyboard.
-  # It executes the keymap and communicates with the computer over USB or BLE.
-
+  # Left side: central, keymap, Bluetooth host connection and ZMK Studio.
   - board: nice_nano@2//zmk
     shield: sofle_left
     artifact-name: sofle_left
-
-    # Enable communication between ZMK Studio and the keyboard over USB.
     snippet: studio-rpc-usb-uart
-
-    # Compile the left firmware with ZMK Studio enabled.
     cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-
-  # ===========================================================================
-  # SOFLE RIGHT
-  # ===========================================================================
-  #
-  # The right side acts as a peripheral.
-  # It sends key and encoder events to the left side over Bluetooth.
-
+  # Right side: split peripheral.
   - board: nice_nano@2//zmk
     shield: sofle_right
     artifact-name: sofle_right
 
-
-  # ===========================================================================
-  # NICE!NANO SETTINGS RESET
-  # ===========================================================================
-  #
-  # Optional recovery firmware used to clear persistent settings,
-  # including Bluetooth pairings and split communication information.
-  #
-  # Building this file does not reset the keyboard automatically.
-  # The reset only happens if this UF2 is manually flashed.
-
+  # Optional recovery firmware.
   - board: nice_nano@2//zmk
     shield: settings_reset
     artifact-name: nice_nano_v2_settings_reset
